@@ -1,9 +1,5 @@
 import pandas as pd
 
-"""
-    Utilize code from https://github.com/illidanlab/med-attack
-    Files cw.py and cw_main.py
-"""
 
 """ Handles data preprocessing """
 def preprocessing():
