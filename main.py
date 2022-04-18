@@ -1,5 +1,10 @@
 import pandas as pd
 
+"""
+    Utilize code from https://github.com/illidanlab/med-attack
+    Files cw.py and cw_main.py
+"""
+
 """ Handles data preprocessing """
 def preprocessing():
     chart_events = pd.read_csv('./mimic-iii-clinical-database-1.4/CHARTEVENTS.csv')
