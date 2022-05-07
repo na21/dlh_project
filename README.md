@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ## Setup
 
-Apply for access to [MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/) and download files to root of this repository in directory ```mimic-iii-clinical-database-1.4```
+Apply for access to [MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/) and download to the root of this repository in directory ```mimic-iii-clinical-database-1.4```
 ```
 git clone https://github.com/MIT-LCP/mimic-code.git
 git clone https://github.com/illidanlab/urgent-care-comparative.git
@@ -82,5 +82,3 @@ python urgent-care-comparative/preprocess.py --path_tables local_mimic/tables --
 
 python prep_files.py
 ```
-
-
