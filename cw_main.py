@@ -25,19 +25,19 @@ def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list):
 
     print('\nLoading Data')
 
-    path_string = path + './data_train.pkl'
+    path_string = path + 'processed_files/data_train.pkl'
     fn = open(path_string, 'rb')
     data_train = pickle.load(fn)
 
-    path_string = path + './target_train.pkl'
+    path_string = path + 'processed_files/target_train.pkl'
     fn = open(path_string, 'rb')
     labels_train = pickle.load(fn)
 
-    path_string = path + './data_test.pkl'
+    path_string = path + 'processed_files/data_test.pkl'
     fn = open(path_string, 'rb')
     data_test = pickle.load(fn)
 
-    path_string = path + './target_test.pkl'
+    path_string = path + 'processed_files/target_test.pkl'
     fn = open(path_string, 'rb')
     labels_test = pickle.load(fn)
 
