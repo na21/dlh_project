@@ -7,17 +7,17 @@ from sklearn.model_selection import StratifiedKFold
 def pipeline():
     skf = StratifiedKFold(n_splits=5)
     count = 0
-    
-    X = np.load('./save/X19.npy')
+
+    X = np.load('local_mimic/save/X19.npy')
     y = get_task()
     ref_target = y
-    
+
     X, y = np.array(X), np.array(y)
 
     for train_index, test_index in skf.split(X, ref_target):
         count += 1
         print ("KFold #{0}".format(count))
-        
+
         X_tr, X_te = X[train_index], X[test_index]
         y_tr, y_te = y[train_index], y[test_index]
 
@@ -33,8 +33,8 @@ def pipeline():
                 Y_te[i][1]=1
             else:
                 Y_te[i][0]=1
-        
-        fld_name = 'processed_files/fold' + str(count)
+
+        fld_name = 'processed_files/fold_' + str(count)
 
         os.makedirs(fld_name, exist_ok=True)
 
@@ -53,7 +53,7 @@ def pipeline():
 
 
 def get_task():
-    with open('./save/y', 'rb') as f:
+    with open('local_mimic/save/y', 'rb') as f:
         labels = pickle.load(f)
     dct = {'mort': 0}
     task = [yy[dct['mort']] for yy in labels]
@@ -63,3 +63,4 @@ def get_task():
 
 if __name__ == '__main__':
     pipeline()
+
