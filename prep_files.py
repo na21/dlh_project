@@ -15,7 +15,6 @@ def pipeline():
     X, y = np.array(X), np.array(y)
 
     for train_index, test_index in skf.split(X, ref_target):
-        count += 1
         print ("KFold #{0}".format(count))
 
         X_tr, X_te = X[train_index], X[test_index]
@@ -35,6 +34,7 @@ def pipeline():
                 Y_te[i][0]=1
 
         fld_name = 'processed_files/fold_' + str(count)
+        count += 1
 
         os.makedirs(fld_name, exist_ok=True)
 
