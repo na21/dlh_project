@@ -30,7 +30,7 @@ More information may be found at:
     * Tensorflow
     * Progressbar2
 * PostgreSQL
-* [MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/)
+* MIMIC-III Clinical Database
 
 Install Python requirements
 ```
