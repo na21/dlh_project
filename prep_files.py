@@ -1,6 +1,8 @@
+import os
 import pickle
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
+
 
 def pipeline():
     skf = StratifiedKFold(n_splits=5)
@@ -32,13 +34,15 @@ def pipeline():
         else:
             Y_te[i][0]=1
 
-    with open('./data_train.pkl', 'wb') as f:
+    os.makedirs('processed_files', exist_ok=True)
+    
+    with open('processed_files/data_train.pkl', 'wb') as f:
         pickle.dump(X_tr, f)
-    with open('./target_train.pkl', 'wb') as f:
+    with open('processed_files/target_train.pkl', 'wb') as f:
         pickle.dump(Y_tr, f)
-    with open('./data_test.pkl', 'wb') as f:
+    with open('processed_files/data_test.pkl', 'wb') as f:
         pickle.dump(X_te, f)
-    with open('./target_test.pkl', 'wb') as f:
+    with open('processed_files/target_test.pkl', 'wb') as f:
         pickle.dump(Y_te, f)
 
 
