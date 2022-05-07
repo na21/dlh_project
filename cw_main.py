@@ -21,7 +21,7 @@ np.random.seed(12345)
 # target_test.pkl: n_test x label
 ###########################
 
-def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list):
+def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list, fold):
 
     print('\nLoading Data')
 
@@ -260,7 +260,7 @@ def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list):
     FL = np.zeros((n_obs, n_lamb))
 
     for i in range(n_obs):
-        print("Iteration: " + str(i))
+        print("Fold " + str(fold) + ", Iteration: " + str(i) + '/' + str(n_obs))
         x = data_clean[i:i + 1]
         for j in range(len(lamb_list)):
             print(j)
@@ -296,6 +296,5 @@ if __name__ == '__main__':
         path = 'processed_files/fold_' + str(i)
         print("\n=========   Fold: {}  =========".format(i))
         tf.reset_default_graph()
-        run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list)
-        break
+        run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list, i)
 
