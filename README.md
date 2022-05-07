@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ## Setup
 
-Apply for access to [MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/) and download to the root of this repository in directory ```mimic-iii-clinical-database-1.4```
+Apply for access to the [MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/) and download to the root of this repository in directory ```mimic-iii-clinical-database-1.4```
 ```
 git clone https://github.com/MIT-LCP/mimic-code.git
 git clone https://github.com/illidanlab/urgent-care-comparative.git
@@ -51,14 +51,11 @@ git clone https://github.com/illidanlab/urgent-care-comparative.git
 
 Create MIMIC-III in a local Postgres database (db: mimic, user: postgres, password: postgres). Requiries ~100GB
 ```
-cd mimic-code/mimic-iii/buildmimic/postgres/
-make help
-make create-user mimic datadir="../../../../mimic-iii-clinical-database-1.4/"
+(cd mimic-code/mimic-iii/buildmimic/postgres/ && make create-user mimic datadir="../../../../mimic-iii-clinical-database-1.4/")
 ```
 
 Run rest of preprocessing and urgent-care-comparative code
 ```
-cd ../../../../
 mkdir -p local_mimic/{views, tables, save}
 psql --u postgres --d mimic
 
