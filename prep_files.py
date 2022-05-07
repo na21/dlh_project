@@ -8,7 +8,7 @@ def pipeline():
     skf = StratifiedKFold(n_splits=5)
     count = 0
     
-    X = np.load('local_mimic/save/X19.npy')
+    X = np.load('./save/X19.npy')
     y = get_task()
     ref_target = y
     
@@ -21,33 +21,39 @@ def pipeline():
         X_tr, X_te = X[train_index], X[test_index]
         y_tr, y_te = y[train_index], y[test_index]
 
-    Y_tr = np.zeros((y_tr.shape[0],2))
-    Y_te = np.zeros((y_te.shape[0],2))
-    for i, v in enumerate(y_tr):
-        if v == 0 :
-            Y_tr[i][1] = 1
-        else:
-            Y_tr[i][0] = 1
-    for i, v in enumerate(y_te):
-        if v == 0:
-            Y_te[i][1]=1
-        else:
-            Y_te[i][0]=1
+        Y_tr = np.zeros((y_tr.shape[0],2))
+        Y_te = np.zeros((y_te.shape[0],2))
+        for i, v in enumerate(y_tr):
+            if v == 0 :
+                Y_tr[i][1] = 1
+            else:
+                Y_tr[i][0] = 1
+        for i, v in enumerate(y_te):
+            if v == 0:
+                Y_te[i][1]=1
+            else:
+                Y_te[i][0]=1
+        
+        fld_name = 'processed_files/fold' + str(count)
 
-    os.makedirs('processed_files', exist_ok=True)
-    
-    with open('processed_files/data_train.pkl', 'wb') as f:
-        pickle.dump(X_tr, f)
-    with open('processed_files/target_train.pkl', 'wb') as f:
-        pickle.dump(Y_tr, f)
-    with open('processed_files/data_test.pkl', 'wb') as f:
-        pickle.dump(X_te, f)
-    with open('processed_files/target_test.pkl', 'wb') as f:
-        pickle.dump(Y_te, f)
+        os.makedirs(fld_name, exist_ok=True)
+
+        data_trn_fold = fld_name + "/data_train.pkl"
+        with open(data_trn_fold, 'wb') as f:
+            pickle.dump(X_tr, f)
+        target_trn_fold = fld_name + "/target_train.pkl"
+        with open(target_trn_fold , 'wb') as f:
+            pickle.dump(Y_tr, f)
+        data_tst_fold = fld_name + "/data_test.pkl"
+        with open(data_tst_fold, 'wb') as f:
+            pickle.dump(X_te, f)
+        target_tst_fold = fld_name + "/target_test.pkl"
+        with open(target_tst_fold, 'wb') as f:
+            pickle.dump(Y_te, f)
 
 
 def get_task():
-    with open('local_mimic/save/y', 'rb') as f:
+    with open('./save/y', 'rb') as f:
         labels = pickle.load(f)
     dct = {'mort': 0}
     task = [yy[dct['mort']] for yy in labels]
