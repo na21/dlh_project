@@ -25,19 +25,19 @@ def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list):
 
     print('\nLoading Data')
 
-    path_string = path + 'processed_files/data_train.pkl'
+    path_string = path + '/data_train.pkl'
     fn = open(path_string, 'rb')
     data_train = pickle.load(fn)
 
-    path_string = path + 'processed_files/target_train.pkl'
+    path_string = path + '/target_train.pkl'
     fn = open(path_string, 'rb')
     labels_train = pickle.load(fn)
 
-    path_string = path + 'processed_files/data_test.pkl'
+    path_string = path + '/data_test.pkl'
     fn = open(path_string, 'rb')
     data_test = pickle.load(fn)
 
-    path_string = path + 'processed_files/target_test.pkl'
+    path_string = path + '/target_test.pkl'
     fn = open(path_string, 'rb')
     labels_test = pickle.load(fn)
 
@@ -260,7 +260,7 @@ def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list):
     FL = np.zeros((n_obs, n_lamb))
 
     for i in range(n_obs):
-
+        print("Iteration: " + str(i))
         x = data_clean[i:i + 1]
         for j in range(len(lamb_list)):
             print(j)
@@ -273,9 +273,9 @@ def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list):
             FL[i, j] = flag
 
     dir = path + '/output'
-    if not os.path.exists(dir):   # compatible for python 2.
-        os.makedirs(dir)
-    # os.makedirs(dir, exist_ok=True)  # compatible for python 3.
+    # if not os.path.exists(dir):   # compatible for python 2.
+    #    os.makedirs(dir)
+    os.makedirs(dir, exist_ok=True)  # compatible for python 3.
 
     fn = dir + '/Adv_metric.pkl'
     f = open(fn, 'wb')
@@ -292,11 +292,10 @@ if __name__ == '__main__':
 
     seq = np.linspace(np.log(0.0005), np.log(0.015), num=25)
     lamb_list = np.exp(seq)
-    """for i in range(nFold):
-        i=0
-        path = '../fold_' + str(i)
+    for i in range(nFold):
+        path = 'processed_files/fold_' + str(i)
         print("\n=========   Fold: {}  =========".format(i))
         tf.reset_default_graph()
         run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list)
-        break"""
+        break
 
