@@ -6,7 +6,7 @@ def pipeline():
     skf = StratifiedKFold(n_splits=5)
     count = 0
     
-    X = np.load('./X19.npy')
+    X = np.load('local_mimic/save/X19.npy')
     y = get_task()
     ref_target = y
     
@@ -43,7 +43,7 @@ def pipeline():
 
 
 def get_task():
-    with open('./y', 'rb') as f:
+    with open('local_mimic/save/y', 'rb') as f:
         labels = pickle.load(f)
     dct = {'mort': 0}
     task = [yy[dct['mort']] for yy in labels]
