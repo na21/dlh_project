@@ -293,3 +293,22 @@ Computing adversarial suspectability scores as done in the paper were not comple
 | 3 | 0.8511 | 0.9409 | 0.9012 | 0.9844 |
 | 4 | 0.8227 | 0.9408 | 0.8911 | 0.9963 |
 
+**Train/test scores when changing learning rate to 0.10 from 0.02 and epochs to 10 from 25:**
+
+| Fold | Train AUC_score | Train f1 | Train PS_score | Train RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.8571 | 0.9443 | 0.8982 | 0.9953 |
+| 1 | 0.8443 | 0.9440 | 0.9009 | 0.9914 |
+| 2 | 0.8222 | 0.9419 | 0.8944 | 0.9948 |
+| 3 | 0.8347 | 0.9435 | 0.8956 | 0.9969 |
+| 4 | 0.8241 | 0.9393 | 0.8859 | 0.9996 |
+
+| Fold | Test AUC_score | Test f1 | Test PS_score | Test RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.8198 | 0.9409 | 0.8953 | 0.9914 |
+| 1 | 0.8454 | 0.9439 | 0.8992 | 0.9934 |
+| 2 | 0.8029 | 0.9419 | 0.8939 | 0.9955 |
+| 3 | 0.8319 | 0.9419 | 0.8934 | 0.9959 |
+| 4 | 0.8088 | 0.9382 | 0.8847 | 0.9986 |
+
+
