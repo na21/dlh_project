@@ -12,8 +12,8 @@ Utilizes code from the following repositories:
 * https://github.com/MIT-LCP/mimic-code
 
 More information may be found at:
-* [**Presentation**]()
-* [**Final Report**]()
+* [**Presentation**](https://uofi.box.com/s/8v5frko6xzskhmhhw70eag63aed67qk4)
+* [**Final Report**](/docs/CS598DLH_project_Nivedita_Nissan.pdf)
 
 ## Authors
 
