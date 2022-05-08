@@ -153,7 +153,7 @@ Computing adversarial suspectability scores as done in the paper were not comple
 | 3 | 0.8511 | 0.9409 | 0.9012 | 0.9844 |
 | 4 | 0.8227 | 0.9408 | 0.8911 | 0.9963 |
 
-**Train/test scores when changing learning rate to 0.10 from 0.02 and epochs to 10 from 25:**
+**Train/test scores when changing learning rate from 0.02 to 0.10 and epochs from 25 to 10:**
 
 | Fold | Train AUC_score | Train f1 | Train PS_score | Train RC_score |
 | --- | --- | --- | --- | --- |
@@ -171,4 +171,38 @@ Computing adversarial suspectability scores as done in the paper were not comple
 | 3 | 0.8319 | 0.9419 | 0.8934 | 0.9959 |
 | 4 | 0.8088 | 0.9382 | 0.8847 | 0.9986 |
 
+**Train/test scores when changing learning rate from 0.02 to 0.01 and epochs from 25 to 50:**
 
+| Fold | Train AUC_score | Train f1 | Train PS_score | Train RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.9534 | 0.9694 | 0.9511 | 0.9885 |
+| 1 | 0.9252 | 0.9634 | 0.9434 | 0.9843 |
+| 2 | 0.9302 | 0.9647 | 0.9440 | 0.9863 |
+| 3 | 0.9218 | 0.9627 | 0.9350 | 0.9921 |
+| 4 | 0.9412 | 0.9629 | 0.9324 | 0.9954 |
+
+| Fold | Test AUC_score | Test f1 | Test PS_score | Test RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.7378 | 0.9301 | 0.9086 | 0.9525 |
+| 1 | 0.7765 | 0.9377 | 0.9128 | 0.9640 |
+| 2 | 0.7994 | 0.9338 | 0.9120 | 0.9566 |
+| 3 | 0.8224 | 0.9409 | 0.9128 | 0.9708 |
+| 4 | 0.7768 | 0.9388 | 0.9013 | 0.9796 |
+
+**Train/test scores when changing batch size from 64 to 32:**
+
+| Fold | Train AUC_score | Train f1 | Train PS_score | Train RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.8906 | 0.9529 | 0.9196 | 0.9886 |
+| 1 | 0.8873 | 0.9526 | 0.9158 | 0.9925 |
+| 2 | 0.8789 | 0.9506 | 0.9093 | 0.9958 |
+| 3 | 0.8917 | 0.9524 | 0.9118 | 0.9968 |
+| 4 | 0.8884 | 0.9496 | 0.9058 | 0.9978 |
+
+| Fold | Test AUC_score | Test f1 | Test PS_score | Test RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.7867 | 0.9390 | 0.9043 | 0.9766 |
+| 1 | 0.8483 | 0.9445 | 0.9063 | 0.9860 |
+| 2 | 0.8343 | 0.9425 | 0.9001 | 0.9891 |
+| 3 | 0.8391 | 0.9425 | 0.9002 | 0.9889 |
+| 4 | 0.8302 | 0.9414 | 0.8952 | 0.9926 |
