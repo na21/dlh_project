@@ -106,3 +106,5 @@ Create model and adversarial examples
 ```
 python med_attack/cw_main.py
 ```
+
+A model is saved in each fold directory and an output folder containing "Adv_metric.pkl" is also generated.
