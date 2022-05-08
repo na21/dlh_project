@@ -148,9 +148,9 @@ def run_fold(path, hidden_dim, fc_dim, timesteps, test_flag, lamb_list, fold):
         if hasattr(env, 'saver'):
             print('\n Saving model')
             dir = path + '/model'
-            if not os.path.exists(dir):   # compatible for python 2.
-                os.makedirs(dir)
-            # os.makedirs(dir, exist_ok=True) # compatible for python 3.
+            # if not os.path.exists(dir):   # compatible for python 2.
+            #   os.makedirs(dir)
+            os.makedirs(dir, exist_ok=True) # compatible for python 3.
             fn = dir + '/{}'
             env.saver.save(env.sess, fn.format(name))
 

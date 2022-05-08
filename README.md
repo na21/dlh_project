@@ -108,3 +108,27 @@ python med_attack/cw_main.py
 ```
 
 A model is saved in each fold directory and an output folder containing "Adv_metric.pkl" is also generated.
+
+Use tensorflow-gpu or tensorflow-directml (on WSL2) to utilize GPU for a 100%+ speed increase when generating the model. However, running adversarials for all 5 folds can take 4-5 days of runtime so a GPU cluster on AWS or Google Cloud is recommended.
+
+## Results
+
+Computing adversarial suspectability scores as done in the paper were not completed. The paper was not clear enough regarding input and general creation of these scores. However, the adversarial examples created from cw_main offer some insight.
+
+Train/test scores for learning rate 0.02:
+
+| Fold | Train AUC_score | Train f1 | Train PS_score | Train RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.8943 | 0.9525 | 0.9161 | 0.9918 |
+| 1 | 0.8762 | 0.9506 | 0.9108 | 0.9941 |
+| 2 | 0.8788 | 0.9499 | 0.9095 | 0.9941 |
+| 3 | 0.8798 | 0.9531 | 0.9176 | 0.9915 |
+| 4 | 0.8708 | 0.9452 | 0.8968 | 0.9991 |
+
+| Fold | Test AUC_score | Test f1 | Test PS_score | Test RC_score |
+| --- | --- | --- | --- | --- |
+| 0 | 0.7932 | 0.9399 | 0.9024 | 0.9807 |
+| 1 | 0.8386 | 0.9417 | 0.9012 | 0.9860 |
+| 2 | 0.8347 | 0.9420 | 0.9011 | 0.9868 |
+| 3 | 0.8433 | 0.9408 | 0.9050 | 0.9794 |
+| 4 | 0.8292 | 0.9403 | 0.8906 | 0.9959 |
